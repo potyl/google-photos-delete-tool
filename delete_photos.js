@@ -15,16 +15,6 @@ async function deleteGooglePhotos() {
     // Waits for a specified time
     const wait = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
 
-    // Scrolls the photo list down
-    const scrollPhotoList = async () => {
-        let photoDiv = document.querySelector(photoDivSelector)
-        let top = photoDiv.scrollTop;
-        await waitUntil(() => {
-            photoDiv.scrollBy(0, photoDiv.clientHeight);
-            return photoDiv.scrollTop > top;
-        });
-    };
-
     // Scrolls the photo list to the top
     const scrollPhotoListTo = (top = 0) => {
         document.querySelector(photoDivSelector).scrollTop = top;
@@ -34,9 +24,7 @@ async function deleteGooglePhotos() {
     const scrollPhotoListBy = async (height = 0) => {
         const photoDiv = document.querySelector(photoDivSelector);
         await waitUntil(() => {
-            const top = photoDiv.scrollTop;
             photoDiv.scrollBy(0, height);
-
             return waitUntil(() => document.querySelector(checkboxSelector), 500).catch(() => null)
         });
     };
