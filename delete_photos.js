@@ -1,4 +1,4 @@
-const maxCount = 5000;
+const maxCount = 5_000;
 const counterSelector = '.rtExYb';
 const checkboxSelector = '.ckGgle[aria-checked=false]';
 const photoDivSelector = ".yDSiEe.uGCjIb.zcLWac.eejsDc.TWmIyd";
@@ -42,7 +42,7 @@ async function deleteGooglePhotos() {
     };
 
     // Waits until a specific condition is met, then returns the result
-    const waitUntil = async (resultFunction, timeout = 600000) => {
+    const waitUntil = async (resultFunction, timeout = 600_000) => {
         let startTime = Date.now();
         while (Date.now() - startTime < timeout) {
             let result = await resultFunction();
